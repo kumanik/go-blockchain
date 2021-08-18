@@ -28,7 +28,7 @@ func (pow *ProofOfWork) InitData(nounce int) []byte {
 	data := bytes.Join(
 		[][]byte{
 			pow.Block.PrevHash,
-			pow.Block.Data,
+			pow.Block.HashTransactions(),
 			ToHex(int64(nounce)),
 			ToHex(int64(Difficulty)),
 		},
